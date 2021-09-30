@@ -1,12 +1,18 @@
 <?php 
 $amount = filter_input(INPUT_POST, 'amount');
-$final = 0 ;
-define('EUR', 25);
-define('USD', 22);
-define('RUB', 0,30);
-define('GBR', 30);
+$finalamount = 0 ;
+define ('EUR_CZK', 25);
+define ('USD_CZK', 21);
+define ('RUB_CZK', 0,3);
+define ('GBP_CZK',29);
+define ('USD_EUR',25);
+define ('RUB_EUR',0,3);
+define ('GBP_EUR',29);
+define ('RUB_GBP',25);
+define ('USD_GBP',21)
+define ('USD_RUB',0,3);
 
-$odeslat = filter_input(INPUT_POST, 'odeslat');
+$sub = filter_input(INPUT_POST, 'odeslat');
 $switch =  filter_input(INPUT_POST, 'switch');
 $curencyfrom;
 $curencyto;
@@ -24,108 +30,120 @@ $text = "Převod je hotov : " ;
 <h1>Směnárna</h1>
 <br>
 <?php
-if (isset($sub)) 
+if (isset($sub)) {
     switch ($switch) {
         case 'czk_eur': 
             $finalamount = $amount / EUR_CZK ;
             $convertfrom = " CZK " ;
             $convertto = " EUR " ;
-            break;
+                break;
        case 'czk_usd': 
-            $finalamount = $amount / USD_CZK ;
-            $convertfrom = " CZK " ;
-            $convertto = " USD " ;
-            break;
+                $finalamount = $amount / USD_CZK ;
+                $convertfrom = " CZK " ;
+                $convertto = " USD " ;
+                break;
        case 'czk_gbp': 
-            $finalamount = $amount / GBP_CZK ;
-            $convertfrom = " CZK " ;
-            $convertto = " GBP " ;
-            break;
+                    $finalamount = $amount / GBP_CZK ;
+                    $convertfrom = " CZK " ;
+                    $convertto = " GBP " ;
+                            break;
         case 'czk_rub': 
-            $finalamount = $amount / RUB_CZK;
-            $convertfrom = " RUB " ;
-            $convertto = " CZK " ;
-            break;
-        case 'eur_czk': 
+                    $finalamount = $amount / RUB_CZK;
+                    $convertfrom = " RUB " ;
+                    $convertto = " CZK " ;
+                    break;
+
+    case 'eur_czk': 
             $finalamount = $amount * EUR_CZK ;
             $convertfrom = " EUR " ;
             $convertto = " CZK " ;
             break;
-        case 'eur_usd':
+    case 'eur_usd':
             $finalamount = $amount * USD_EUR ;
             $convertfrom = " EUR " ;
             $convertto = " USD " ;
             break;
-        case 'eur_rub': 
+    case 'eur_rub': 
             $finalamount = $amount * RUB_EUR ;
             $convertfrom = " EUR " ;
             $convertto = " RUB " ;
             break;
-        case 'eur_gbp': 
+    case 'eur_gbp': 
             $finalamount = $amount * GBP_EUR ;
             $convertfrom = " EUR " ;
             $convertto = " GBP " ;
             break;
-        case 'usd_czk': 
+     
+    
+    
+    case 'usd_czk': 
             $finalamount = $amount * USD_CZK ;
             $convertfrom = " USD " ;
             $convertto = " CZK " ;
             break;
-        case 'usd_eur': 
+    case 'usd_eur': 
             $finalamount = $amount * USD_EUR ;
             $convertfrom = " USD " ;
             $convertto = " EUR " ;
             break;
-       case 'usd_rub': 
+    case 'usd_rub': 
             $finalamount = $amount * USD_RUB ;
             $convertfrom = " USD " ;
             $convertto = " RUB " ;
             break;
-       case 'usd_gbp': 
+    
+    case 'usd_gbp': 
             $finalamount = $amount * USD_GBP;
             $convertfrom = " USD " ;
             $convertto = " GBP " ;
             break;
-       case 'rub_czk': 
+    
+     
+    
+    case 'rub_czk': 
             $finalamount = $amount * RUB_CZK ;
             $convertfrom = " USD " ;
             $convertto = " CZK " ;
             break;
-       case 'rub_eur': 
+    case 'rub_eur': 
             $finalamount = $amount * RUB_EUR ;
             $convertfrom = " US " ;
             $convertto = " EUR " ;
             break;
-       case 'rub_usd': 
+    case 'rub_usd': 
             $finalamount = $amount * USD_RUB ;
             $convertfrom = " USD " ;
             $convertto = " RUB " ;
             break;
-      case 'rub_gbp': 
+    case 'rub_gbp': 
             $finalamount = $amount * GBP_EUR;
             $convertfrom = " USD " ;
             $convertto = " GBP " ;
             break;
-      case 'gbp_czk': 
+    
+    
+    case 'gbp_czk': 
             $finalamount = $amount * GBP_CZK ;
             $convertfrom = " USD " ;
             $convertto = " CZK " ;
             break;
-      case 'gbp_eur': 
+    case 'gbp_eur': 
             $finalamount = $amount * GBP_EUR ;
             $convertfrom = " US " ;
             $convertto = " EUR " ;
             break;
-      case 'gbp_usd': 
+    case 'gbp_usd': 
             $finalamount = $amount * USD_GBP ;
             $convertfrom = " USD " ;
             $convertto = " RUB " ;
             break;
-      case 'gbp_rub': 
+    case 'gbp_rub': 
             $finalamount = $amount * RUB_GBP;
             $convertfrom = " USD " ;
             $convertto = " GBP " ;
             break;   
+
+  
                                      
                   }
 
