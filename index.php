@@ -9,7 +9,7 @@ define ('USD_EUR',25);
 define ('RUB_EUR',0,3);
 define ('GBP_EUR',29);
 define ('RUB_GBP',25);
-define ('USD_GBP',21)
+define ('USD_GBP',21);
 define ('USD_RUB',0,3);
 
 $sub = filter_input(INPUT_POST, 'odeslat');
@@ -73,6 +73,8 @@ if (isset($sub)) {
             $convertfrom = " EUR " ;
             $convertto = " GBP " ;
             break;
+     
+
      
     
     
@@ -147,7 +149,7 @@ if (isset($sub)) {
                                      
                   }
 
-        $all =$text . $amount . $curencyfrom . " = " . $finnal . $curencyto ?>
+}        $all =$text . $amount . $curencyfrom . " = " . $finnal . $curencyto ?>
 
 
     <form action="index.php" method="post">
